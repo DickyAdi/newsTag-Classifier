@@ -6,6 +6,7 @@ from nltk.stem import WordNetLemmatizer
 from datetime import datetime
 import joblib
 import os
+import streamlit as st
 
 class lemmaToken():
     """
@@ -82,3 +83,17 @@ class lemmaToken():
 #         joblib.dump(objName, os.path.join(dir, '_'.join(timesNow)))
 #     else:
 #         raise ValueError('pref must not empty!')
+
+def checkDependencies():
+    missing_packages = []
+    packages_to_download = ['wordnet', 'punkt', 'averaged_perceptron_tagger', 'stopwords']
+
+    with st.spinner('Checking and installing packages, please do not navigate to another pages or close the page....\nDownload process may vary depending on your connection speed'):
+        for package_name in packages_to_download:
+            if not nltk.download(package_name, quiet=False):
+                missing_packages.append(package_name)
+
+    if missing_packages:
+        st.warning(f"The following NLTK packages failed to download: {', '.join(missing_packages)}")
+    else:
+        st.success("All dependencies are already installed.")
