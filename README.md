@@ -160,7 +160,7 @@ Distributed under the Apache License Version 2.0. See `LICENSE.txt` for more inf
 
 ## Contact
 
-Your Name - dickyadi44@gmail.com
+Dicky Adi - dickyadi44@gmail.com
 
 Project Link: [https://github.com/DickyAdi/newsTag-Classifier](https://github.com/DickyAdi/newsTag-Classifier)
 
